@@ -10,7 +10,7 @@ KEY_FILE = "secret.key"
 
 def load_key():
  if not os.path.exists(KEY_FILE):
- key = Fernet.generate_key()
+   key = Fernet.generate_key()
  with open(KEY_FILE, "wb") as f:
  f.write(key)
  else:

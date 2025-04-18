@@ -13,10 +13,12 @@ def load_key():
    key = Fernet.generate_key()
  with open("key.key", "wb") as f:
     f.write(key)
- else:
- with open(KEY_FILE, "rb") as f:
- key = f.read()
- return key
+ try:
+    with open("key.key", "wb") as f:
+        f.write(key)
+ except Exception as e:
+    print("An error occurred:", e)
+
 
 cipher = Fernet(load_key())
 
